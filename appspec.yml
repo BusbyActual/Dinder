@@ -1,0 +1,18 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: app/dinder/
+hooks:
+  BeforeInstall:
+    - location: ./scripts/beforeInstall.sh
+      timeout: 900
+  AfterInstall:
+    - location: ./scripts/afterInstall.sh
+      timeout: 900
+  ApplicationStart:
+    - location: ./scripts/applicationStart.sh
+      timeout: 900
+  ValidateService:
+    - location: ./scripts/testscript.sh
+      timeout: 900
